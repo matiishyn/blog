@@ -12,7 +12,7 @@ JavaScript frameworks and techs we are gonna be talking about:
 * [**Angular2**][ng2] is still in `RC6` and cannot be used in production yet
 * [**React**][react] is already `15.3.x` and it's nicely used with [**Redux**][redux]
 
-Last month I gave a talk about **Angular2** and people asked which 
+Last month I gave a [talk](https://youtu.be/IdkfhxbzMNI?t=5m7s) about **Angular2** and people asked which 
 framework to use for starting new project. I cannot recommend you 
 **Angular2** yet but I can give you some practical advices how to write 
 your **AngularJS 1.5.x** application "correctly"
