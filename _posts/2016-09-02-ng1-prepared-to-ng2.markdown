@@ -63,7 +63,7 @@ element. ([more](http://teropa.info/blog/2015/10/18/refactoring-angular-apps-to-
 As already mentioned, the component helper makes 
 it easier to structure your application with a component-based architecture.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AMwjDibFxno" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube-video-embedded" src="https://www.youtube.com/embed/AMwjDibFxno" frameborder="0" allowfullscreen></iframe>
 
 
 And that *component approach* will help you to migrate to **Angular2** 

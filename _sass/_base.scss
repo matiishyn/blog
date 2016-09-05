@@ -204,3 +204,16 @@ pre {
         }
     }
 }
+
+
+iframe.youtube-video-embedded {
+    width: 100%;
+    height: 416px;
+}
+
+@include media-query($on-laptop) {
+  iframe.youtube-video-embedded {
+    width: 100%;
+    height: 300px;
+  }
+}
