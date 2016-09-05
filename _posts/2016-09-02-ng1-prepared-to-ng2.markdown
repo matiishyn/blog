@@ -28,7 +28,10 @@ and [more](http://www.technofattie.com/2014/03/21/five-guidelines-for-avoiding-s
 This is an anti-pattern, which makes your 
 application difficult to work with, non-extendable and hardly maintainable. 
 
-![Image](http://teropa.info/images/scope_soup.png)
+{% include image.html 
+    url="http://teropa.info/images/scope_soup.png" 
+    caption="Image credit: Teropa.info" 
+%}
 
 Here are some points that should be **avoided** while creating and designing 
 an AngularJS application:
@@ -55,7 +58,10 @@ just a custom HTML element that matches a component name and usually
 has certain inputs and outputs, which we supply as properties on the 
 element. ([more](http://teropa.info/blog/2015/10/18/refactoring-angular-apps-to-components.html#components))
 
-![Image](http://teropa.info/images/component_refac.gif)
+{% include image.html 
+    url="http://teropa.info/images/component_refac.gif" 
+    caption="Image credit: Teropa.info" 
+%}
 
 **AngularJS 1.5.x** showed us a new special kind of directive which is a 
 `.component()` ([docs](https://docs.angularjs.org/guide/component) and 
