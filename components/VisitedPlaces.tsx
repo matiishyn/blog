@@ -1,6 +1,7 @@
 "use client";
 
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import Typography from "./Typography";
 
 // Using EUROCONTROL world map data that correctly shows Crimea as part of Ukraine
 // Source: https://github.com/euctrl-pru/eurocontrol_world_map
@@ -97,9 +98,9 @@ export default function VisitedPlaces() {
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 className="text-3xl font-heading font-bold text-heading mb-8">
+      <Typography variant="h2" className="mb-8">
         Places I&apos;ve visited
-      </h2>
+      </Typography>
 
       <div className="bg-background rounded-lg p-4 border border-foreground/10">
         <ComposableMap

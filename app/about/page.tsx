@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import Typography from "@/components/Typography";
 import VisitedPlaces from "@/components/VisitedPlaces";
 import { Metadata } from "next";
 
@@ -15,9 +16,9 @@ export default function AboutPage() {
       {/* Additional content can be added here */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          <h2 className="text-3xl font-heading font-bold text-heading mb-6">
+          <Typography variant="h2" className="mb-6">
             My Journey
-          </h2>
+          </Typography>
           <p className="text-foreground/80 mb-4">
             Welcome to my personal corner of the internet! I created this blog to
             share my thoughts and experiences on topics that fascinate me most:
