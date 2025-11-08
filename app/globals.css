@@ -6,6 +6,7 @@
   --heading: #152035;
   --accent: #f08e80;
   --nav-hover: hsla(8, 79%, 72%, .1);
+  --wave: #f08e80;
 }
 
 :root.dark {
@@ -14,6 +15,7 @@
   --heading: #ffffff;
   --accent: #f08e80;
   --nav-hover: #041722;
+  --wave: #082d42;
 }
 
 @theme inline {
@@ -22,6 +24,7 @@
   --color-heading: var(--heading);
   --color-accent: var(--accent);
   --color-nav-hover: var(--nav-hover);
+  --color-wave: var(--wave);
 }
 
 body {
