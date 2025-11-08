@@ -32,7 +32,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-all px-3 py-2 rounded-lg ${isActive(link.href)
+                className={`font-medium text-lg transition-all px-5 py-2 rounded-lg ${isActive(link.href)
                   ? "text-accent"
                   : "nav-link hover:bg-nav-hover"
                   }`}
@@ -99,7 +99,7 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`font-medium transition-all px-3 py-2 rounded-lg ${isActive(link.href)
+                  className={`font-medium text-lg transition-all px-3 py-2 rounded-lg ${isActive(link.href)
                     ? "text-accent"
                     : "nav-link hover:bg-nav-hover"
                     }`}
