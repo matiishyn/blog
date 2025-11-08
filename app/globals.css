@@ -4,31 +4,45 @@
   --background: #fff6ef;
   --foreground: #505050;
   --heading: #152035;
+  --accent: #f08e80;
+  --nav-hover: hsla(8, 79%, 72%, .1);
 }
 
 :root.dark {
   --background: #02111a;
   --foreground: #d6d6d6;
   --heading: #ffffff;
+  --accent: #f08e80;
+  --nav-hover: #041722;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-heading: var(--heading);
-  --font-body: var(--font-work-sans);
-  --font-heading: var(--font-crete-round);
+  --color-accent: var(--accent);
+  --color-nav-hover: var(--nav-hover);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  font-size: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
-  font-family: var(--font-heading), serif;
+  font-family: var(--font-crete-round), serif;
   transition: color 0.3s ease;
+}
+
+/* Navigation link colors */
+.nav-link {
+  color: #152035;
+}
+
+:root.dark .nav-link {
+  color: #d6d6d6;
 }

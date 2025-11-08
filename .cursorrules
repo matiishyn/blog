@@ -1,0 +1,52 @@
+# Cursor Rules for Blog Project
+
+## Tailwind CSS 4 Best Practices
+
+- Always use Tailwind CSS 4 best practices and features
+- Follow the new @theme inline syntax for custom configurations
+- Use the new @import "tailwindcss" syntax instead of @tailwind directives
+
+## Colors and Spacing
+
+- **Always use theme colors and spacing values**
+- **Never use inline/arbitrary colors or spacing** (e.g., avoid `text-[#152035]`, `p-[24px]`)
+- If a color or spacing value doesn't exist in the theme:
+  1. First, update `app/globals.css` to add it to the theme
+  2. Then use the theme variable in your components
+- Use CSS custom properties defined in `:root` for colors
+- Reference theme values using Tailwind's utility classes (e.g., `text-heading`, `bg-background`)
+
+## Color Scheme
+
+Current theme colors:
+- Background: `--background` (#fff6ef light, #02111a dark)
+- Foreground: `--foreground` (#505050 light, #d6d6d6 dark)
+- Heading: `--heading` (#152035 light, #ffffff dark)
+- Accent (links/active): #f08e80
+
+## Typography
+
+- Headings: Use Crete Round font (`--font-crete-round`)
+- Body: Use Work Sans font (`--font-work-sans`)
+- Default font size: 16px
+
+## Component Guidelines
+
+- Prefer Server Components by default
+- Use "use client" only when necessary (state, effects, browser APIs)
+- Follow Next.js 16 App Router conventions
+- Keep components focused and reusable
+
+## File Organization
+
+- Pages go in `app/` directory
+- Reusable components in `components/` directory
+- Utilities and helpers in `lib/` directory
+- Blog posts in `posts/` directory (MDX format)
+
+## Responsive Design
+
+- Mobile-first approach
+- Use Tailwind's responsive prefixes (sm:, md:, lg:, xl:)
+- Ensure all components work on mobile, tablet, and desktop
+

@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
-import { Work_Sans, Crete_Round } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import type { Metadata } from "next";
+import { Crete_Round, Work_Sans } from "next/font/google";
+import "./globals.css";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 

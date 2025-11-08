@@ -23,32 +23,27 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+      <div className="max-w-6xl mx-auto px-4 pt-8 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo/Brand */}
-          <Link
-            href="/"
-            className="text-xl font-heading font-bold text-heading hover:opacity-80 transition-opacity"
-          >
-            Engineering & Management Notes
-          </Link>
-
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 mx-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-heading ${
-                  isActive(link.href)
-                    ? "text-heading"
-                    : "text-foreground/70"
-                }`}
+                className={`font-medium transition-all px-3 py-2 rounded-lg ${isActive(link.href)
+                  ? "text-accent"
+                  : "nav-link hover:bg-nav-hover"
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          {/* Theme Toggle - Desktop */}
+          <div className="hidden md:block">
             <ThemeToggle />
           </div>
 
@@ -97,18 +92,17 @@ export default function Navigation() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-800">
+          <div className="md:hidden py-4">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-heading ${
-                    isActive(link.href)
-                      ? "text-heading"
-                      : "text-foreground/70"
-                  }`}
+                  className={`font-medium transition-all px-3 py-2 rounded-lg ${isActive(link.href)
+                    ? "text-accent"
+                    : "nav-link hover:bg-nav-hover"
+                    }`}
                 >
                   {link.label}
                 </Link>
