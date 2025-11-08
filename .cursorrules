@@ -50,3 +50,9 @@ Current theme colors:
 - Use Tailwind's responsive prefixes (sm:, md:, lg:, xl:)
 - Ensure all components work on mobile, tablet, and desktop
 
+## Package Manager
+
+- Always use `bun` as the package manager
+- Use `bun install`, `bun add`, `bun remove` for package management
+- Use `bun run` for running scripts
+

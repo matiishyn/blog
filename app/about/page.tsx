@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import VisitedPlaces from "@/components/VisitedPlaces";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -35,6 +36,8 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+      {/* Visited Places Section */}
+      <VisitedPlaces />
     </div>
   );
 }

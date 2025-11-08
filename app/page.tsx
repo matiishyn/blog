@@ -1,5 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import PostCard from "@/components/PostCard";
+import VisitedPlaces from "@/components/VisitedPlaces";
 import { getRecentPosts } from "@/lib/mdx";
 
 export default function Home() {
@@ -26,6 +27,9 @@ export default function Home() {
           <p className="text-foreground/60">No posts yet. Check back soon!</p>
         )}
       </section>
+
+      {/* Visited Places Section */}
+      <VisitedPlaces />
     </div>
   );
 }
