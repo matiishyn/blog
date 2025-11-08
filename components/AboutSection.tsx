@@ -1,8 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Wave from "./Wave";
 
 export default function AboutSection() {
+  const scrollToVisitedPlaces = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById("visited-places");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-25">
       <div className="flex flex-col md:flex-row gap-30 items-center md:items-start">
@@ -33,6 +43,9 @@ export default function AboutSection() {
             A Software Engineer and Engineering Manager based in Poland, originally from Ukraine.
             I'm interested in all things tech, AI, engineering, and management related.
             Read more about me <Link href="/about" className="text-accent">here</Link>.
+          </p>
+          <p className="text-lg text-foreground leading-relaxed">
+            Oh, and I love traveling. Check out my <a href="#visited-places" onClick={scrollToVisitedPlaces} className="text-accent">visited places</a>.
           </p>
         </div>
       </div>

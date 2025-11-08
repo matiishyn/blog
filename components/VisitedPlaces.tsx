@@ -118,9 +118,9 @@ export default function VisitedPlaces() {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="visited-places" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <Typography variant="h2" className="mb-8">
-        Places I&apos;ve visited
+        Visited Places
       </Typography>
 
       <div className="bg-background rounded-lg p-4 border border-foreground/10">
