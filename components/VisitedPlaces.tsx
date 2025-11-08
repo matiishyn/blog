@@ -1,6 +1,7 @@
 "use client";
 
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { Tooltip } from "react-tooltip";
 import Typography from "./Typography";
 
 // Using EUROCONTROL world map data that correctly shows Crimea as part of Ukraine
@@ -33,6 +34,8 @@ const visitData: { [key: string]: number } = {
   "Czech Republic": 2,
   Malta: 1,
   "United Arab Emirates": 1,
+  Slovakia: 1,
+  Slovenia: 1,
 };
 
 // Map country names to ISO A3 codes (used by the GeoJSON) and alternate names
@@ -63,9 +66,27 @@ const countryNameToCode: { [key: string]: string[] } = {
   "Czech Republic": ["CZE", "Czech Republic", "Czechia", "203"],
   Malta: ["MLT", "Malta", "470"],
   "United Arab Emirates": ["ARE", "United Arab Emirates", "UAE", "784"],
+  Slovakia: ["SVK", "Slovakia", "703"],
+  Slovenia: ["SVN", "Slovenia", "705"],
 };
 
 export default function VisitedPlaces() {
+  // Function to get visit count for a country
+  const getVisitCount = (geoName: string, geoId: string): number | null => {
+    for (const [countryName, codes] of Object.entries(countryNameToCode)) {
+      const nameMatches = geoName === countryName ||
+        geoName.toLowerCase() === countryName.toLowerCase();
+      const codeMatches = codes.includes(geoId) ||
+        codes.includes(geoName) ||
+        codes.some(code => geoId?.toString() === code);
+
+      if (nameMatches || codeMatches) {
+        return visitData[countryName];
+      }
+    }
+    return null;
+  };
+
   // Function to get color based on visit count
   const getCountryColor = (geoName: string, geoId: string, geoProperties: any) => {
     // Find if this country has been visited
@@ -114,23 +135,45 @@ export default function VisitedPlaces() {
           <Geographies geography={geoUrl}>
             {({ geographies }: { geographies: any[] }) =>
               geographies.map((geo) => {
-                // This GeoJSON uses 'id' for ISO codes and 'adm0_a3' property
+                // This GeoJSON uses 'id' for ISO codes (like "UKR", "POL", etc.)
                 const geoId = geo.id || geo.properties?.adm0_a3;
-                const geoName = geo.properties?.NAME || geo.properties?.name || "";
+
+                // Get the country name by matching the geoId with our mapping
+                let displayName = "";
+                let visitCount = null;
+
+                for (const [countryName, codes] of Object.entries(countryNameToCode)) {
+                  if (codes.includes(geoId)) {
+                    displayName = countryName;
+                    visitCount = visitData[countryName];
+                    break;
+                  }
+                }
+
+                // Fallback to geoId if no match found
+                if (!displayName) {
+                  displayName = geoId || "Unknown";
+                }
+
+                // Create tooltip content - just show country name
+                const tooltipContent = displayName;
 
                 return (
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={getCountryColor(geoName, geoId?.toString(), geo.properties)}
+                    fill={getCountryColor(displayName, geoId?.toString(), geo.properties)}
                     stroke="#fff6ef"
                     strokeWidth={0.5}
+                    data-tooltip-id="country-tooltip"
+                    data-tooltip-content={tooltipContent}
                     style={{
                       default: { outline: "none" },
                       hover: {
                         outline: "none",
                         fill: "#f08e80",
                         opacity: 0.8,
+                        cursor: "pointer",
                       },
                       pressed: { outline: "none" },
                     }}
@@ -140,6 +183,18 @@ export default function VisitedPlaces() {
             }
           </Geographies>
         </ComposableMap>
+
+        <Tooltip
+          id="country-tooltip"
+          style={{
+            backgroundColor: "var(--heading)",
+            color: "var(--background)",
+            borderRadius: "8px",
+            padding: "8px 12px",
+            fontSize: "14px",
+            zIndex: 1000,
+          }}
+        />
       </div>
     </section>
   );
