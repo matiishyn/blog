@@ -156,7 +156,7 @@ All rights reserved © 2024 Engineering & Management Notes
 
 **Ivan Matiishyn**
 
-A writer based in New York City, interested in all things tech, science, and photography.
+A writer interested in all things tech, science, and photography.
 
 ---
 

@@ -5,6 +5,15 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Read my latest articles on tech, science, and photography.",
+  alternates: {
+    canonical: "https://icemnotes.com/blog",
+  },
+  openGraph: {
+    title: "Blog | Engineering & Management Notes",
+    description: "Read my latest articles on tech, science, and photography.",
+    url: "https://icemnotes.com/blog",
+    type: "website",
+  },
 };
 
 export default function BlogPage() {

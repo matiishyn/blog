@@ -25,23 +25,55 @@ export const metadata: Metadata = {
     default: "Engineering & Management Notes",
     template: "%s | Engineering & Management Notes",
   },
-  description: "A writer based in New York City. I'm interested in all things tech, science, and photography related.",
+  description: "A writer interested in all things tech, science, and photography related.",
+  authors: [{ name: "Ivan Matiishyn", url: "https://icemnotes.com/about" }],
+  creator: "Ivan Matiishyn",
+  publisher: "Ivan Matiishyn",
+  keywords: ["engineering", "management", "tech blog", "science", "photography"],
   openGraph: {
     title: "Engineering & Management Notes",
-    description: "A writer based in New York City. I'm interested in all things tech, science, and photography related.",
+    description: "A writer interested in all things tech, science, and photography related.",
     url: "https://icemnotes.com",
     siteName: "Engineering & Management Notes",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Engineering & Management Notes",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Engineering & Management Notes",
-    description: "A writer based in New York City. I'm interested in all things tech, science, and photography related.",
+    description: "A writer interested in all things tech, science, and photography related.",
+    creator: "@icemnotes",
+    images: ["/profile.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://icemnotes.com",
+    types: {
+      "application/rss+xml": "https://icemnotes.com/rss.xml",
+    },
+  },
+  verification: {
+    // Add your verification codes when you have them
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
   },
 };
 

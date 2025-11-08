@@ -3,34 +3,44 @@ import PostCard from "@/components/PostCard";
 import VisitedPlaces from "@/components/VisitedPlaces";
 import Typography from "@/components/Typography";
 import { getRecentPosts } from "@/lib/mdx";
+import { generateWebSiteSchema } from "@/lib/structured-data";
 
 export default function Home() {
   const recentPosts = getRecentPosts(3);
+  const websiteSchema = generateWebSiteSchema();
 
   return (
-    <div>
-      {/* About Section */}
-      <AboutSection />
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
 
-      {/* Recent Posts Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Typography variant="h2" className="mb-8">
-          Recent posts
-        </Typography>
+      <div>
+        {/* About Section */}
+        <AboutSection />
 
-        {recentPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-foreground/60">No posts yet. Check back soon!</p>
-        )}
-      </section>
+        {/* Recent Posts Section */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <Typography variant="h2" className="mb-8">
+            Recent posts
+          </Typography>
 
-      {/* Visited Places Section */}
-      <VisitedPlaces />
-    </div>
+          {recentPosts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {recentPosts.map((post) => (
+                <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-foreground/60">No posts yet. Check back soon!</p>
+          )}
+        </section>
+
+        {/* Visited Places Section */}
+        <VisitedPlaces />
+      </div>
+    </>
   );
 }
