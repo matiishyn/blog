@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Image */}
         {post.metadata.heroImage && (
-          <div className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-800">
+          <div className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg bg-image-placeholder">
             <Image
               src={post.metadata.heroImage}
               alt={post.metadata.title}
@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.metadata.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-800 text-foreground"
+                  className="px-3 py-1 text-sm rounded-full bg-tag-bg text-foreground"
                 >
                   {tag}
                 </span>

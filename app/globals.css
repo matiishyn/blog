@@ -7,6 +7,10 @@
   --accent: #f08e80;
   --nav-hover: hsla(8, 79%, 72%, .1);
   --wave: #f08e80;
+  --card-bg: #f5e6dc;
+  --hover-bg: rgba(240, 142, 128, 0.1);
+  --tag-bg: #f5e6dc;
+  --image-placeholder: #f5e6dc;
 }
 
 :root.dark {
@@ -16,6 +20,10 @@
   --accent: #f08e80;
   --nav-hover: #041722;
   --wave: #082d42;
+  --card-bg: #041722;
+  --hover-bg: #041722;
+  --tag-bg: #0a2433;
+  --image-placeholder: #0a2433;
 }
 
 @theme inline {
@@ -25,6 +33,10 @@
   --color-accent: var(--accent);
   --color-nav-hover: var(--nav-hover);
   --color-wave: var(--wave);
+  --color-card-bg: var(--card-bg);
+  --color-hover-bg: var(--hover-bg);
+  --color-tag-bg: var(--tag-bg);
+  --color-image-placeholder: var(--image-placeholder);
 }
 
 body {

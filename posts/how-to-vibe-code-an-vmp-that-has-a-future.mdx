@@ -1,0 +1,101 @@
+---
+title: "How to Vibe-Code an MVP That Has a Future"
+description: "A practical guide for non-developers on building an MVP with AI tools while keeping code quality high enough for future development."
+tags: ["MVP", "AI", "development", "no-code", "cursor", "nextjs"]
+targetAudience: "Anyone who wants to create a product without deep coding skills but wants maintainable, future-proof code."
+date: "2025-11-27"
+draft: false
+---
+
+> **Target audience:** everyone who wants to create a product but doesn’t know how to code. I’ll try to avoid being too technical, but you’ll need a basic understanding of web technologies and a little terminal knowledge.
+
+These days, creating an MVP is easier than ever. You go to [bolt.new](https://bolt.new/), [lovable.dev](https://lovable.dev/), or your favorite AI tool and simply ask:  
+**“Create this and that.”**
+
+These tools will generate a solid starting point — you can even deploy it immediately and share it with stakeholders or a user group to validate your idea.
+
+But what about the code quality?  
+Spoiler alert: it’s almost never great. And when you hand this project to your developers, they’ll likely suggest starting from scratch.
+
+# **How to vibe-code an MVP that has a future (and developers will love it)**
+
+Here’s the answer right away:  
+**Start with the code.**  
+You’re not a developer — that’s okay. I’ll show you how.
+
+We’ll use Cursor, but Claude Code is also a good alternative.
+
+# **0. Prerequisites**
+
+Make sure you have Node.js installed.
+
+# **1. Init the project**
+
+Open your terminal and create a new Next.js project:
+
+```bash
+npx create-next-app@latest habit-tracker --yes
+```
+
+Open it in Cursor.
+
+# **2. Create rules**
+
+Here’s what you need to know when working with any AI agent:
+
+- **Sh\*t in = sh\*t out.**
+- AI needs **strict limits and rules**, otherwise the output becomes too generic.
+
+So let’s create **the rules**.
+
+In the **Agent** window, paste and run:
+
+```bash
+add cursor rules:
+* Use latest versions of Next.js (App Router only), React, Tailwind, and shadcn/ui.
+* Code must be senior-expert level: clean, typed, scalable, and production-ready.
+* Default to Server Components; mark "use client" explicitly.
+* Follow React best practices: functional components, hooks, no legacy APIs.
+* Enable "strict": true; no any, no @ts-ignore; explicit return types.
+* Use Tailwind (latest) for styling; keep class lists short; extract patterns with cn() or CVA.
+* Use shadcn/ui for UI primitives; don’t edit generated components.
+* Use Route Handlers and Server Actions; avoid Pages Router or API routes.
+* Never expose secrets client-side; only use NEXT_PUBLIC_*.
+* Validate inputs with Zod or types; handle errors gracefully (error.tsx, toasts).
+* Components: small, focused, accessible (semantic HTML, ARIA, keyboard).
+* Prefer immutability, composition, and derived state; avoid prop drilling.
+* Optimize performance: minimal client JS, lazy load heavy parts, next/image, next/font.
+* Lint and type checks must pass with zero warnings.
+* No inline CSS (except vars), no mutable globals, no direct DOM manipulation.
+* Code should be maintainable, testable, and accessible by default.
+```
+
+If you see `I've created a comprehensive .cursorrules`, you’re good to proceed.
+
+# **3. Plan and build**
+
+Describe your application in detail in the **Agent** and switch to **Plan** mode.
+
+Once the plan looks correct, click **Build** and let the AI magic begin.
+
+After building, ask it to run the project:
+
+```
+Local: http://localhost:3000
+```
+
+Open it in your browser and iterate with the Agent if needed.
+
+# **4. Deploy to public**
+
+Recommended:
+
+- Push code to GitHub
+- Connect to Vercel
+- Auto-deploy on every push
+
+Alternative (no Git required):
+
+- Use https://app.netlify.com/drop to deploy manually
+
+Your MVP is now live and ready to share!

@@ -114,7 +114,7 @@ export default function VisitedPlaces() {
     }
 
     // Unvisited country - use foreground color (muted)
-    return "#505050";
+    return "#808080";
   };
 
   return (

@@ -21,7 +21,7 @@ export default function PostCard({ post }: PostCardProps) {
       <Link href={`/blog/${post.slug}`} className="block">
         {/* Hero Image */}
         {post.metadata.heroImage && (
-          <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-800">
+          <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg bg-image-placeholder">
             <Image
               src={post.metadata.heroImage}
               alt={post.metadata.title}
@@ -56,7 +56,7 @@ export default function PostCard({ post }: PostCardProps) {
               {post.metadata.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-800 text-foreground"
+                  className="px-3 py-1 text-sm rounded-full bg-tag-bg text-foreground"
                 >
                   {tag}
                 </span>

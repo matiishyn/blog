@@ -52,7 +52,7 @@ export default function Navigation() {
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg hover:bg-hover-bg transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
