@@ -1,163 +1,28 @@
-# Engineering & Management Notes
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-A personal blog built with Next.js 16, featuring MDX support, dark/light theme switching, and SEO optimization.
+## Getting Started
 
-## 🚀 Features
-
-- **Next.js 16** with App Router
-- **MDX Support** for rich blog content
-- **Dark/Light Theme** with system preference detection
-- **SEO Optimized** with metadata, sitemap, and robots.txt
-- **Responsive Design** mobile-friendly layout
-- **Typography** using Google Fonts (Crete Round & Work Sans)
-- **Static Site Generation** for optimal performance
-
-## 📁 Project Structure
-
-```
-blog/
-├── app/
-│   ├── layout.tsx          # Root layout with fonts and metadata
-│   ├── page.tsx            # Homepage with about section and recent posts
-│   ├── globals.css         # Global styles and theme variables
-│   ├── blog/
-│   │   ├── page.tsx        # Blog listing page
-│   │   └── [slug]/
-│   │       └── page.tsx    # Individual blog post page
-│   ├── about/
-│   │   └── page.tsx        # About page
-│   ├── robots.ts           # SEO robots configuration
-│   └── sitemap.ts          # Dynamic sitemap generation
-├── components/
-│   ├── ThemeProvider.tsx   # Theme context provider
-│   ├── ThemeToggle.tsx     # Theme toggle button
-│   ├── Navigation.tsx      # Main navigation with mobile menu
-│   ├── Footer.tsx          # Site footer
-│   ├── AboutSection.tsx    # Reusable about section
-│   ├── PostCard.tsx        # Blog post card component
-│   └── MDXContent.tsx      # MDX content renderer
-├── lib/
-│   └── mdx.ts             # MDX utilities and post management
-├── posts/
-│   ├── markdown-syntax-guide.mdx
-│   ├── getting-started-with-nextjs.mdx
-│   └── the-power-of-typescript.mdx
-└── public/
-    └── profile-placeholder.svg
-```
-
-## 🎨 Design
-
-- **Light Theme**: Warm beige background (#fff6ef) with dark gray text (#505050)
-- **Dark Theme**: Deep blue background (#02111a) with light gray text (#d6d6d6)
-- **Headings**: Crete Round font in #152035 (light) / #fff (dark)
-- **Body**: Work Sans font
-
-## 📝 Creating Blog Posts
-
-Blog posts are written in MDX format and stored in the `/posts` directory.
-
-### Post Frontmatter
-
-```yaml
----
-title: Your Post Title
-publishDate: 2024-11-08
-description: A brief description of your post
-tags:
-  - Tag1
-  - Tag2
-heroImage: /path/to/image.jpg  # Optional
----
-```
-
-### Adding a New Post
-
-1. Create a new `.mdx` file in the `/posts` directory
-2. Add the required frontmatter
-3. Write your content using Markdown/MDX
-4. The post will automatically appear on the blog page
-
-## 🛠️ Development
-
-### Prerequisites
-
-- Node.js 18+ or Bun
-- npm, yarn, or bun package manager
-
-### Installation
+First, run the development server:
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd blog
-
-# Install dependencies
-bun install
-# or
-npm install
-```
-
-### Running the Development Server
-
-```bash
-bun run dev
-# or
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Building for Production
-
-```bash
-bun run build
 # or
-npm run build
+yarn dev
 ```
 
-### Starting Production Server
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-bun run start
-# or
-npm run start
-```
+## Learn More
 
-## 📦 Dependencies
+To learn more about Next.js, take a look at the following resources:
 
-- **next**: React framework
-- **react** & **react-dom**: React library
-- **@next/mdx**: MDX support for Next.js
-- **next-mdx-remote**: MDX rendering
-- **gray-matter**: Frontmatter parser
-- **reading-time**: Reading time estimation
-- **remark-gfm**: GitHub Flavored Markdown
-- **rehype-highlight**: Code syntax highlighting
-- **highlight.js**: Syntax highlighting styles
-- **tailwindcss**: Utility-first CSS framework
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 🌐 Deployment
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-The site is optimized for deployment on:
-- Vercel (recommended)
-- Netlify
-- Any static hosting service
+## Deploy on Vercel
 
-### Environment Variables
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-No environment variables are required for basic functionality.
-
-## 📄 License
-
-All rights reserved © 2024 Engineering & Management Notes
-
-## 👤 Author
-
-**Ivan Matiishyn**
-
-A writer interested in all things tech, science, and photography.
-
----
-
-Built with ❤️ using Next.js 16
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
