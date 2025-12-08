@@ -4,6 +4,12 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  // Optimize for production
+  reactStrictMode: true,
+  // Image optimization
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
 };
 
 module.exports = nextConfig;

@@ -5,3 +5,13 @@
 @import "./header.scss";
 @import "./main.scss";
 @import "./footer.scss";
+
+// Apply next/font CSS variables
+body {
+  font-family: var(--font-work-sans), $font-secondary !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-crete-round), $font-primary !important;
+}

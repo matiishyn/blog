@@ -1,6 +1,6 @@
 // style variables
-$font-primary: "Crete Round", serif;
-$font-secondary: "Work Sans", sans-serif;
+$font-primary: var(--font-crete-round), "Crete Round", serif;
+$font-secondary: var(--font-work-sans), "Work Sans", sans-serif;
 $h1: 64px;
 $h1-lg: 52px;
 $h1-md: 42px;
