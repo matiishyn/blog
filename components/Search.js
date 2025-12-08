@@ -1,3 +1,5 @@
+"use client";
+
 import { AppContext } from "@/components/UseContext";
 import { formatDate } from "@/utils/formatDate";
 import { IconX } from "@tabler/icons-react";

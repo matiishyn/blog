@@ -1,3 +1,5 @@
+"use client";
+
 import Search from "@/components/Search";
 import { AppContext } from "@/components/UseContext";
 import Menu from "@/config/menus.json";
@@ -6,13 +8,13 @@ import { IconMenu2, IconX } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
 export default function Header() {
+  const pathname = usePathname();
   const { toggleSearch } = useContext(AppContext);
   const [searchOpen, setSearchOpen] = toggleSearch;
-  const router = useRouter();
 
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -194,7 +196,7 @@ export default function Header() {
                           className={`nav-item dropdown
                           ${n.submenu
                             .map((n) =>
-                              router.pathname == `${n.link}` ? `active` : ""
+                              pathname == `${n.link}` ? `active` : ""
                             )
                             .join("")}
                         `}
@@ -215,7 +217,7 @@ export default function Header() {
                                 <Link
                                   href={n.link}
                                   className={`dropdown-item ${
-                                    router.pathname == `${n.link}`
+                                    pathname == `${n.link}`
                                       ? `active`
                                       : ""
                                   }`}
@@ -230,7 +232,7 @@ export default function Header() {
                         <li
                           key={i}
                           className={`nav-item ${
-                            router.pathname == `${n.link}` ? `active` : ""
+                            pathname == `${n.link}` ? `active` : ""
                           }`}
                         >
                           <Link href={n.link} className="nav-link">
