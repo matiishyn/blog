@@ -1,14 +1,17 @@
 ---
-title: "About"
-description: "This a dummy meta description of about page"
+title: "About Me"
+description: "Learn more about Ivan Matiishyn - Software Engineer & Engineering Manager with 11 years of experience in building scalable applications and leading technical teams"
 
 #intro
 intro:
-  title: "We are the Qurno, <br> Team of content writers and designers."
-  description: "If ever a place existed where you could just go crazy creatively, it is definitely your about page. It’s your chance to show your readers who you really are. Pictures, quotes, inspirational graphics, whatever it is that drives you.. Display it here in a way that only you can.
-  
-  
-  I’ve included a plugin in the setup of this theme that will make adding columns to your pages and posts a piece of cake. Let creativity take control, and forget about the technical end of things, I’ve got your six."
+  title: "Hi, I'm Ivan Matiishyn<br>Software Engineer & Engineering Manager"
+  description: "With over 12 years of experience in software development, I've had the privilege of building scalable web applications and leading talented technical teams across different continents.
+
+
+  Originally from Ukraine, I'm currently based in Poland, where I continue to work with distributed, cross-functional teams. My expertise spans the full JavaScript/TypeScript ecosystem - from React.js and Next.js on the frontend to Node.js on the backend. I've worked on high-traffic platforms serving over 10 million monthly visitors, focusing on performance, scalability, and user experience.
+
+
+  Beyond coding, I'm passionate about people management, team growth, and fostering engineering excellence. I write about technology, management practices, AI, programming, and personal finance - sharing insights from my journey in the tech industry."
 
   # about images
   images:
@@ -31,6 +34,6 @@ intro:
 # our writers
 # if "enable: false" authors/writers will not show on the about page
 our_writers:
-  enable: true
+  enable: false
  
 ---

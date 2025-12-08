@@ -1,3 +1,5 @@
+"use client";
+
 import Markdown from "@/components/ReactMarkdown";
 import {
   IconBrandFacebook,
@@ -7,8 +9,19 @@ import {
   IconBrandTwitter,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import { useMemo } from "react";
 
 export default function BannerBlock({ banner: { frontMatter } }) {
+  // Calculate years of experience dynamically
+  const yearsOfExperience = useMemo(() => {
+    return new Date().getFullYear() - 2013;
+  }, []);
+
+  // Replace placeholder with actual years
+  const description = useMemo(() => {
+    return frontMatter.description.replace(/over \d+ years/g, `over ${yearsOfExperience} years`);
+  }, [frontMatter.description, yearsOfExperience]);
+
   return (
     <section className="section overflow-hidden banner">
       <div className="container">
@@ -30,50 +43,26 @@ export default function BannerBlock({ banner: { frontMatter } }) {
                 <p className="mb-2">{frontMatter.subtitle}</p>
                 <h1 className="text-dark mb-3">{frontMatter.title}</h1>
                 <div className="content">
-                  <Markdown content={frontMatter.description} inline={true} />
+                  <Markdown content={description} inline={true} />
                 </div>
 
                 <ul className={`social-share icon-box mt-4 pt-2`}>
                   <li className="d-inline-block me-2 mb-2">
                     <a
-                      aria-label="facebook"
-                      href="https://facebook.com"
+                      aria-label="github"
+                      href="https://github.com/matiishyn"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <i>
-                        <IconBrandFacebook size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block me-2 mb-2">
-                    <a
-                      aria-label="twitter"
-                      href="https://twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandTwitter size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block me-2 mb-2">
-                    <a
-                      aria-label="instagram"
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandInstagram size={18} />
+                        <IconBrandGithub size={18} />
                       </i>
                     </a>
                   </li>
                   <li className="d-inline-block me-2 mb-2">
                     <a
                       aria-label="linkedin"
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/matiishyn/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -84,13 +73,13 @@ export default function BannerBlock({ banner: { frontMatter } }) {
                   </li>
                   <li className="d-inline-block me-2 mb-2">
                     <a
-                      aria-label="github"
-                      href="https://github.com"
+                      aria-label="instagram"
+                      href="https://www.instagram.com/ivan_mmdsd/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <i>
-                        <IconBrandGithub size={18} />
+                        <IconBrandInstagram size={18} />
                       </i>
                     </a>
                   </li>

@@ -6,6 +6,7 @@ import { getAuthors } from "@/libs/getAuthors";
 import { getPosts } from "@/libs/getPosts";
 import { getSinglePage } from "@/libs/getSinglePage";
 import Image from "next/image";
+import { useMemo } from "react";
 
 export default function About({ authors, posts, about: { frontMatter } }) {
   const allAuthor = posts.map((author) => author.frontMatter.author);
@@ -13,6 +14,16 @@ export default function About({ authors, posts, about: { frontMatter } }) {
   allAuthor.forEach((x) => {
     postCount[x] = (postCount[x] || 0) + 1;
   });
+
+  // Calculate years of experience dynamically
+  const yearsOfExperience = useMemo(() => {
+    return new Date().getFullYear() - 2013;
+  }, []);
+
+  // Replace placeholder with actual years
+  const description = useMemo(() => {
+    return frontMatter.intro.description.replace(/over \d+ years/g, `over ${yearsOfExperience} years`);
+  }, [frontMatter.intro.description, yearsOfExperience]);
 
   return (
     <Layout
@@ -55,7 +66,7 @@ export default function About({ authors, posts, about: { frontMatter } }) {
           <div className="row justify-content-center">
             <div className="col-lg-10 text-center">
               <div className="content">
-                <Markdown content={frontMatter.intro.description} />
+                <Markdown content={description} />
               </div>
             </div>
           </div>

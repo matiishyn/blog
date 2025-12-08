@@ -1,17 +1,17 @@
 {
   "metaData": {
-    "title" : "Qurno | Minimal NextJS Blog Template",
-    "description" : "Qurno - a minimal nextjs blog template",
-    "author" : "PlatolTheme",
-    "keyword" : "qurno, minimal, react, nextjs, blog, template",
-    "ogImage" : "https://qurno-nextjs.vercel.app/images/ogimage.jpg"
+    "title" : "Engineering & Management Notes | Ivan Matiishyn",
+    "description" : "Notes on Engineering & Management by Ivan Matiishyn - Software Engineer & Engineering Manager with over 12 years of experience in building scalable web applications and leading technical teams.",
+    "author" : "Ivan Matiishyn",
+    "keyword" : "engineering manager, software development, javascript, typescript, reactjs, nextjs, nodejs, web technologies, AI, machine learning, team leadership, technical management, software architecture, frontend development, full stack development",
+    "ogImage" : "https://matiishyn.dev/images/ogimage.jpg"
   },
-  "baseURL" : "https://qurno-nextjs.vercel.app/",
+  "baseURL" : "https://matiishyn.dev/",
   "logo" : "/images/logo.png",
   "logo_light" : "/images/logo-light.png",
-  "logoText" : "Qurno",
+  "logoText" : "Ivan Matiishyn",
   "favicon" : "/images/favicon.png",
   "postPerPage" : 6,
   "postColumns" : 2,
-  "copyright" : "© 2023 Qurno. All rights reserved."
+  "copyright" : "© 2025 Ivan Matiishyn. All rights reserved."
 }

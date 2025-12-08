@@ -1,8 +1,13 @@
+"use client";
+
 import siteConfig from "@/config/site.config.json";
 import subscription from "@/config/subscription.json";
 import { IconUserPlus } from "@tabler/icons-react";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  const copyrightText = siteConfig.copyright.replace(/© \d{4}/, `© ${currentYear}`);
+
   return (
     <footer>
       <div className="container">
@@ -84,7 +89,7 @@ export default function Footer() {
           <div className="row">
             <div className="col-lg-12 text-center">
               <p className="mb-0 copyright-text content">
-                {siteConfig.copyright}
+                {copyrightText}
               </p>
             </div>
           </div>

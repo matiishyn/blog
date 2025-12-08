@@ -6,7 +6,6 @@ import { getSinglePage } from "@/libs/getSinglePage";
 import {
   IconBrandTelegram,
   IconMailForward,
-  IconPhone,
 } from "@tabler/icons-react";
 
 export default function Contact({ contact: { frontMatter } }) {
@@ -26,24 +25,15 @@ export default function Contact({ contact: { frontMatter } }) {
               </div>
               <div>
                 <h2 className="h4 mb-3">
-                  <Markdown content={frontMatter.contact.contact_info} inline={true} />
+                  <Markdown content={frontMatter.contact.contact_info_title} inline={true} />
                 </h2>
-                <p className="mb-2 content">
+                <p className="mb-0 content">
                   <i className="me-2 d-inline-block mb-0">
                     <IconMailForward size={16} />
                   </i>{" "}
                   <a href={`mailto:${frontMatter.contact.email_address}`}>
                     {frontMatter.contact.email_address}
                   </a>
-                </p>
-                <p className="mb-0 content">
-                  <i
-                    className="me-2"
-                    style={{ transform: "translateY(" + -2 + "px)" }}
-                  >
-                    <IconPhone size={17} />
-                  </i>{" "}
-                  {frontMatter.contact.phone_number}
                 </p>
               </div>
             </div>
