@@ -253,11 +253,11 @@ export default function PostPage({
 
 export async function getStaticPaths() {
   const blogDirFiles = fs.readdirSync(path.join("content/blog"));
-  const blogs = blogDirFiles.filter((f) => f.includes(".md"));
+  const blogs = blogDirFiles.filter((f) => f.endsWith(".md") || f.endsWith(".mdx"));
 
   const paths = blogs.map((filename) => ({
     params: {
-      slug: filename.replace(".md", ""),
+      slug: filename.replace(/\.(md|mdx)$/, ""),
     },
   }));
 
@@ -268,10 +268,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const fileContents = fs.readFileSync(
-    path.join("content/blog", slug + ".md"),
-    "utf8"
-  );
+  // Try .mdx first, then .md
+  let filePath = path.join("content/blog", slug + ".mdx");
+  if (!fs.existsSync(filePath)) {
+    filePath = path.join("content/blog", slug + ".md");
+  }
+
+  const fileContents = fs.readFileSync(filePath, "utf8");
 
   const { data: frontMatter, content } = matter(fileContents);
 
