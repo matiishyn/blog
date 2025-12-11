@@ -88,7 +88,7 @@ export default function Header() {
                 >
                   <Image
                     className="img-fluid"
-                    width={110}
+                    width={180}
                     height={35}
                     src={
                       mounted && (theme === "dark" || resolvedTheme === "dark")
@@ -235,9 +235,20 @@ export default function Header() {
                             pathname == `${n.link}` ? `active` : ""
                           }`}
                         >
-                          <Link href={n.link} className="nav-link">
-                            {n.name}
-                          </Link>
+                          {n.external ? (
+                            <a 
+                              href={n.link} 
+                              className="nav-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {n.name}
+                            </a>
+                          ) : (
+                            <Link href={n.link} className="nav-link">
+                              {n.name}
+                            </Link>
+                          )}
                         </li>
                       )
                     )}

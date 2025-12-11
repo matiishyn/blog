@@ -1,12 +1,11 @@
 "use client";
 
 import Markdown from "@/components/ReactMarkdown";
+import Wave from "@/components/Wave";
 import {
-  IconBrandFacebook,
   IconBrandGithub,
   IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandTwitter,
+  IconBrandLinkedin
 } from "@tabler/icons-react";
 import Image from "next/image";
 import { useMemo } from "react";
@@ -26,15 +25,16 @@ export default function BannerBlock({ banner: { frontMatter } }) {
     <section className="section overflow-hidden banner">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-lg-10">
+          <div className="col-lg-10 position-relative">
+            <Wave/>
             <div className="row g-4 g-lg-5 text-center text-lg-start align-items-center justify-content-center justify-content-lg-start">
               <div className="col-md-4 col-sm-5 col-6">
                 <Image
                   className="rounded img-fluid"
                   src={frontMatter.image}
                   alt={frontMatter.title}
-                  width={`250`}
-                  height={`250`}
+                  width={300}
+                  height={300}
                   placeholder="blur"
                   blurDataURL={frontMatter.image}
                 />

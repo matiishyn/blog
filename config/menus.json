@@ -5,8 +5,9 @@
       "link": "/"
     },
     {
-      "name": "About",
-      "link": "/about"
+      "name": "CV",
+      "link": "https://matiishyn.dev/cv",
+      "external": true
     },
     {
       "name": "Blog",
