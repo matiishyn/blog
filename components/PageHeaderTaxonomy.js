@@ -1,14 +1,16 @@
+"use client";
+
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbItem from "@/components/BreadcrumbItem";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function PageHeaderTaxo({ title }) {
-  const router = useRouter();
+  const pathname = usePathname();
   const [breadcrumbs, setBreadcrumbs] = useState();
 
   useEffect(() => {
-    const pathWithoutQuery = router.asPath.split("?")[0];
+    const pathWithoutQuery = pathname.split("?")[0];
     let pathArray = pathWithoutQuery.split("/");
     pathArray.shift();
 
@@ -24,7 +26,7 @@ export default function PageHeaderTaxo({ title }) {
     });
 
     setBreadcrumbs(breadcrumbs);
-  }, [router.asPath]);
+  }, [pathname]);
 
   const convertBreadcrumb = (string) => {
     return (
@@ -51,7 +53,7 @@ export default function PageHeaderTaxo({ title }) {
               </h1>
 
               <Breadcrumb>
-                <BreadcrumbItem isCurrent={router.pathname === "/"} href="/">
+                <BreadcrumbItem isCurrent={pathname === "/"} href="/">
                   <i
                     className="d-inline-block text-dark"
                     style={{ transform: "translateY(-" + 2 + "px)" }}

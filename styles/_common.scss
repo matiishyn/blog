@@ -587,8 +587,8 @@ ol {
     }
   }
 
-  // pre code block style
-  pre {
+  // pre code block style (only for basic code blocks, not expressive-code)
+  pre:not(.expressive-code pre) {
     display: block;
     padding: 20px 25px;
     margin: 10px 0px 10px;
@@ -597,7 +597,7 @@ ol {
     background-color: $white;
     border: 1px solid rgb(233, 233, 233);
   }
-  code {
+  code:not(.expressive-code code) {
     margin-bottom: 0 !important;
     font-size: 100%;
   }
@@ -610,7 +610,7 @@ ol {
   figure figcaption {
     color: $white;
   }
-  pre span {
+  pre:not(.expressive-code pre) span {
     color: $dark;
   }
   table {
