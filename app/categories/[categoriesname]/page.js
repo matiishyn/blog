@@ -51,9 +51,12 @@ export default async function CategoryPage({ params }) {
       );
       const { data: frontmatter } = matter(dirFileContents);
 
-      return frontmatter.categories.includes(
-        category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, " ")
-      )
+      // Check if any category matches (case-insensitive)
+      const hasCategory = frontmatter.categories?.some(
+        (cat) => cat.toLowerCase().replace(/ /g, "-") === category.toLowerCase()
+      );
+
+      return hasCategory
         ? allPosts.find((p) => p.slug === file.replace(/\.(md|mdx)$/, ""))
         : null;
     })

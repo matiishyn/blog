@@ -51,9 +51,12 @@ export default async function TagPage({ params }) {
       );
       const { data: frontmatter } = matter(dirFileContents);
 
-      return frontmatter.tags.includes(
-        tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, " ")
-      )
+      // Check if any tag matches (case-insensitive)
+      const hasTag = frontmatter.tags?.some(
+        (t) => t.toLowerCase().replace(/ /g, "-") === tag.toLowerCase()
+      );
+
+      return hasTag
         ? allPosts.find((p) => p.slug === file.replace(/\.(md|mdx)$/, ""))
         : null;
     })
