@@ -1,5 +1,3 @@
-"use client";
-
 import Author from "@/components/Author";
 import PageHeaderBlock from "@/components/PageHeader";
 import Markdown from "@/components/ReactMarkdown";
@@ -7,7 +5,10 @@ import { getAuthors } from "@/libs/getAuthors";
 import { getPosts } from "@/libs/getPosts";
 import { getSinglePage } from "@/libs/getSinglePage";
 import Image from "next/image";
-import { useMemo } from "react";
+
+export const metadata = {
+  title: "About",
+};
 
 export default function AboutPage() {
   const authors = getAuthors();
@@ -22,17 +23,13 @@ export default function AboutPage() {
   });
 
   // Calculate years of experience dynamically
-  const yearsOfExperience = useMemo(() => {
-    return new Date().getFullYear() - 2013;
-  }, []);
+  const yearsOfExperience = new Date().getFullYear() - 2013;
 
   // Replace placeholder with actual years
-  const description = useMemo(() => {
-    return frontMatter.intro.description.replace(
-      /over \d+ years/g,
-      `over ${yearsOfExperience} years`
-    );
-  }, [frontMatter.intro.description, yearsOfExperience]);
+  const description = frontMatter.intro.description.replace(
+    /over \d+ years/g,
+    `over ${yearsOfExperience} years`
+  );
 
   return (
     <>
