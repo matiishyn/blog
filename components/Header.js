@@ -241,6 +241,17 @@ export default function Header() {
                               className="nav-link"
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={() => {
+                                // Track external link click in Google Analytics
+                                if (typeof window !== 'undefined' && window.gtag) {
+                                  window.gtag('event', 'click', {
+                                    event_category: 'External Link',
+                                    event_label: n.name,
+                                    link_url: n.link,
+                                    link_text: n.name,
+                                  });
+                                }
+                              }}
                             >
                               {n.name}
                             </a>
