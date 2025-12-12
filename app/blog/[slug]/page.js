@@ -6,14 +6,14 @@ import { formatDate } from "@/utils/formatDate";
 import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
 import {
-  IconArrowUpRight,
-  IconBrandFacebook,
-  IconBrandLinkedin,
-  IconBrandPinterest,
-  IconBrandReddit,
-  IconBrandTwitter,
-  IconCalendarEvent,
-  IconClock,
+    IconArrowUpRight,
+    IconBrandFacebook,
+    IconBrandLinkedin,
+    IconBrandPinterest,
+    IconBrandReddit,
+    IconBrandTwitter,
+    IconCalendarEvent,
+    IconClock,
 } from "@tabler/icons-react";
 import fs from "fs";
 import matter from "gray-matter";
@@ -21,6 +21,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import path from "path";
+
+// Force static generation only - no SSR fallback
+export const dynamicParams = false;
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -47,20 +50,41 @@ export async function generateMetadata({ params }) {
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data: frontMatter } = matter(fileContents);
 
+  const canonicalUrl = `${siteConfig.baseURL.replace(/\/$/, "")}/blog/${slug}`;
+  const fullImageUrl = frontMatter.image.startsWith("http")
+    ? frontMatter.image
+    : `${siteConfig.baseURL.replace(/\/$/, "")}${frontMatter.image}`;
+
   return {
     title: frontMatter.title,
     description: frontMatter.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: frontMatter.title,
       description: frontMatter.description,
-      images: [frontMatter.image],
+      url: canonicalUrl,
+      siteName: siteConfig.metaData.title,
+      images: [
+        {
+          url: fullImageUrl,
+          width: 1200,
+          height: 630,
+          alt: frontMatter.title,
+        },
+      ],
       type: "article",
+      publishedTime: frontMatter.date,
+      authors: [frontMatter.author],
+      tags: frontMatter.tags,
     },
     twitter: {
       card: "summary_large_image",
       title: frontMatter.title,
       description: frontMatter.description,
-      images: [frontMatter.image],
+      images: [fullImageUrl],
+      creator: "@matiishyn",
     },
   };
 }
@@ -81,9 +105,54 @@ export default async function BlogPostPage({ params }) {
 
   const readingTimeText = readingTime(content);
   const pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}blog/${slug}`;
+  
+  // Get author details
+  const authorDetails = authors.find(
+    (a) => a.authorSlug === author.replace(/ /g, "-").toLowerCase()
+  );
+  
+  const fullImageUrl = image.startsWith("http")
+    ? image
+    : `${siteConfig.baseURL.replace(/\/$/, "")}${image}`;
+
+  // JSON-LD structured data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: description,
+    image: fullImageUrl,
+    datePublished: date,
+    dateModified: date,
+    author: {
+      "@type": "Person",
+      name: author,
+      url: `${siteConfig.baseURL.replace(/\/$/, "")}/author/${author.replace(/ /g, "-").toLowerCase()}`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: siteConfig.metaData.author,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.baseURL.replace(/\/$/, "")}${siteConfig.logo}`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
+    keywords: tags?.join(", "),
+    articleBody: content,
+    wordCount: content.split(/\s+/).length,
+    timeRequired: `PT${readingTimeText}M`,
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-content-center">

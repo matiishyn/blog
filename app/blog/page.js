@@ -10,6 +10,10 @@ import path from "path";
 
 export const metadata = {
   title: "All Posts",
+  description: "Browse all blog posts about software engineering, management, and technology by Ivan Matiishyn",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

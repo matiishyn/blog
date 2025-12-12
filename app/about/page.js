@@ -8,6 +8,10 @@ import Image from "next/image";
 
 export const metadata = {
   title: "About",
+  description: "Learn about Ivan Matiishyn - Software Engineer and Engineering Manager with over 12 years of experience in building scalable web applications and leading technical teams",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

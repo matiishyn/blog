@@ -3,12 +3,16 @@ import Markdown from "@/components/ReactMarkdown";
 import contactForm from "@/config/contactForm.json";
 import { getSinglePage } from "@/libs/getSinglePage";
 import {
-  IconBrandTelegram,
-  IconMailForward,
+    IconBrandTelegram,
+    IconMailForward,
 } from "@tabler/icons-react";
 
 export const metadata = {
   title: "Contact",
+  description: "Get in touch with Ivan Matiishyn. Feel free to reach out for collaborations, questions, or just to say hi",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

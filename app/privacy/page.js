@@ -4,6 +4,10 @@ import { getSinglePage } from "@/libs/getSinglePage";
 
 export const metadata = {
   title: "Privacy Policy",
+  description: "Privacy Policy for Ivan Matiishyn's blog. Learn how we handle your data and privacy",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

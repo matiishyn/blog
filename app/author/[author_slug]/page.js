@@ -23,8 +23,31 @@ export async function generateMetadata({ params }) {
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data: frontMatter } = matter(fileContents);
 
+  const canonicalUrl = `${siteConfig.baseURL.replace(/\/$/, "")}/author/${author_slug}`;
+  const fullImageUrl = frontMatter.image.startsWith("http")
+    ? frontMatter.image
+    : `${siteConfig.baseURL.replace(/\/$/, "")}${frontMatter.image}`;
+
   return {
     title: frontMatter.title,
+    description: `Read posts by ${frontMatter.title} - ${frontMatter.short_bio || frontMatter.title}`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: frontMatter.title,
+      description: `Read posts by ${frontMatter.title}`,
+      url: canonicalUrl,
+      images: [
+        {
+          url: fullImageUrl,
+          width: 250,
+          height: 250,
+          alt: frontMatter.title,
+        },
+      ],
+      type: "profile",
+    },
   };
 }
 
